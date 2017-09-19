@@ -110,16 +110,16 @@
     line: "LOCAL:"
     state: present
 
+- name: Copy xorg.conf
+  copy:
+    src: "xorg.conf"
+    dest: "/etc/X11/xorg.conf"
+
 - name: Copy getdisplay.sh
   copy:
     src: "getdisplay.sh"
     dest: "/usr/local/bin/getdisplay.sh"
     mode: 0755
-
-#- name: Start X
-#  shell: "start-stop-daemon --start --quiet --pidfile /var/run/getdisplay --exec /usr/local/bin/getdisplay.sh"
-#  async: 45
-#  poll: 0
 
 - name: Start X
   shell: "/usr/local/bin/getdisplay.sh"
